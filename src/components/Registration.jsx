@@ -46,7 +46,7 @@ function Registration() {
    }
   }
   return (
-    <div className='bg-blue-950 w-screen flex justify-center items-center '>
+    <div className='bg-blue-900 w-screen flex justify-center items-center '>
 
       <form onSubmit={handleSubmit} className='w-[35vw] bg-slate-500 py-4 rounded-xl p-5 text-black capitalize'>
         <h1 className='text-center font-bold text-[3.5vh]'>Welcome to our project-management tool</h1>
