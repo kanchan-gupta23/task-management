@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useAuth } from '../store/auth';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
