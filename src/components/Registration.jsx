@@ -2,7 +2,7 @@
 import {useState }from 'react'
 import axios from 'axios'
 import { useAuth } from '../store/auth'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 function Registration() {
   const navigate = useNavigate()
   const {storeInLS} = useAuth()
@@ -35,12 +35,13 @@ function Registration() {
         "Content-Type":"application/json" }
      })
      console.log(fetchData.data)
+     navigate("/login")
      storeInLS(fetchData.data.token)
      setUser({ username:"",
       email:"",
       phone:"",
       password:"" } )
-      navigate("/login")
+      
       } catch (error) {
     console.log(error)
    }
@@ -48,7 +49,7 @@ function Registration() {
   return (
     <div className='bg-blue-900 w-screen flex justify-center items-center '>
 
-      <form onSubmit={handleSubmit} className='w-[35vw] bg-slate-500 py-4 rounded-xl p-5 text-black capitalize'>
+      <form onSubmit={handleSubmit}  className='w-[35vw] bg-slate-500 py-4 rounded-xl p-5 text-black capitalize'>
         <h1 className='text-center font-bold text-[3.5vh]'>Welcome to our project-management tool</h1>
         <label className='font-semi-bold m-1'>username</label><br/>
         <input className='rounded-lg p-0.5 mb-2' type='text' placeholder='username' name='username' value={user.username} onChange={handleInput} /><br/>

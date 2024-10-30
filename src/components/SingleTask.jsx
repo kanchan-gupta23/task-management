@@ -8,7 +8,7 @@ function SingleTask() {
   const [data, setData] = useState(null); // Initialize as null
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
-  const { authenticationToken } = useAuth();
+  const { authenticationToken ,user} = useAuth();
 
   const fetchData = async () => {
     try {
@@ -45,8 +45,8 @@ function SingleTask() {
   }
 
   return (
-    <div>
-      <h1>{data.title}</h1>
+    <div className = 'ml-[25vw]'>
+      <h1 className='text-white'>{data.title}</h1>
       <p>{data.task}</p>
     </div>
   );

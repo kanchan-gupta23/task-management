@@ -18,6 +18,20 @@ export const AuthProvider = ({ children }) => {
             }
         }
     };
+    const IsLoggedIn = !!token
+
+    const logout = async()=>{
+        try {
+            
+                setToken("")
+                localStorage.removeItem("Token")
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
+
 
     const userData = async () => {
         if (!token) return;
@@ -30,18 +44,19 @@ export const AuthProvider = ({ children }) => {
             if (response.status === 200) {
                 setUser(response.data);
                 console.log("User data:", response.data);
+                console.log(user.username)
             }
         } catch (error) {
             console.log("Error fetching user data:", error);
         }
     };
-
+    
     useEffect(() => {
         userData();
     }, [token]);
 
     return (
-        <AuthContext.Provider value={{ storeInLS, authenticationToken, user, userData }}>
+        <AuthContext.Provider value={{ storeInLS, authenticationToken, user, userData , logout ,IsLoggedIn }}>
             {children}
         </AuthContext.Provider>
     );
